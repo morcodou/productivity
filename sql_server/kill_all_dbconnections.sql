@@ -15,7 +15,7 @@ SELECT
 FROM	STRING_SPLIT(@dbnames, ';')  
 WHERE	RTRIM(LTRIM(value)) <> ''; 
 
-IF(@sqlversion >= 11.0) --For MS SQL Server 2012 and aboverest	
+IF(@sqlversion >= 11.0) --For MS SQL Server 2012 and above	
 BEGIN
 	SELECT @kill = @kill + 'kill ' + CONVERT(VARCHAR(5), SESSION_ID) + ';' 
 	FROM	SYS.DM_EXEC_SESSIONS SESS
